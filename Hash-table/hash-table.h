@@ -13,7 +13,7 @@ private:
 public:
 
     Hashmap(int s) {
-        this - max_size = s;
+        max_size = s;
         table = new forward_list<pair<const Key, Value>>[max_size];
     }
 
@@ -35,10 +35,7 @@ public:
     }
 
     void print() {
-        for (int i = 0; i < size; ++i) {
-            for (auto it : table[i])
-                cout << "key : " << it.first << "\tvalue : " << it.second << '\n';
-        }
+
     }
 
     void Rehash(int newSize) {
@@ -82,14 +79,13 @@ public:
             break;
             temp = it;
         }
+        --size;
     }
 
     void Display() {
-        for (int i = 0; i < size; i++) {
-            cout << i;
-            for (auto x : table[i])
-                cout << " --> " << x;
-            cout << endl;
+        for (int i = 0; i < size; ++i) {
+            for (auto it : table[i])
+                cout << it.first << " --> " << it.second << '\n';
         }
     }
 
